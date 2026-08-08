@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An interactive LaTeX guide for students, researchers, and engineers by Dr. Nuha Aljuneidi.">
+  <title>LaTeX Field Guide | Dr. Nuha Aljuneidi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <style>
+    :root{--ink:#17332b;--muted:#61736d;--green:#176b50;--green2:#258768;--mint:#e8f3ed;--cream:#f7f5ee;--paper:#fffef9;--line:#d9e2dd;--gold:#c6923a;--code:#102820;--white:#fff;--shadow:0 18px 55px rgba(24,65,51,.10)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.6}button,input,textarea{font:inherit}button{cursor:pointer}
+    .topbar{position:sticky;top:0;z-index:20;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,64px);background:rgba(247,245,238,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(23,107,80,.12)}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-weight:800}.mark{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--green);color:#fff;font:600 20px Newsreader,serif}.toplinks{display:flex;align-items:center;gap:24px}.toplinks a{color:var(--muted);text-decoration:none;font-size:.87rem;font-weight:700}.toplinks a:hover{color:var(--green)}
+    .hero{min-height:540px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:60px;align-items:center;padding:78px clamp(24px,7vw,110px);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:520px;height:520px;right:-190px;top:-210px;border-radius:50%;border:90px solid rgba(37,135,104,.08)}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.eyebrow:before{content:"";width:26px;height:2px;background:var(--gold)}h1{font:600 clamp(3.4rem,7vw,6.8rem)/.9 Newsreader,serif;letter-spacing:-.055em;margin:22px 0}.hero h1 em{font-style:italic;color:var(--green)}.lead{font-size:clamp(1rem,1.5vw,1.18rem);color:var(--muted);max-width:630px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{border:0;border-radius:10px;padding:13px 20px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:8px}.btn-primary{background:var(--green);color:#fff}.btn-primary:hover{background:var(--green2);transform:translateY(-1px)}.btn-ghost{border:1px solid var(--line);color:var(--ink);background:var(--paper)}
+    .paper-card{position:relative;z-index:2;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:26px;transform:rotate(1.5deg)}.paper-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:18px}.dots{display:flex;gap:6px}.dots i{width:7px;height:7px;border-radius:50%;background:#c5d1cb}.paper-head small{color:var(--muted);font:500 .7rem DM Mono,monospace}.paper-card pre{margin:0;white-space:pre-wrap;color:#43534e;font:400 .75rem/1.85 DM Mono,monospace}.syntax{color:var(--green);font-weight:500}.math-preview{margin-top:18px;padding:22px 14px;text-align:center;background:var(--mint);border-radius:10px;font-size:1.08rem}
+    .layout{display:grid;grid-template-columns:250px minmax(0,1fr);max-width:1380px;margin:auto;padding:40px clamp(20px,4vw,58px) 90px;gap:44px}.side{position:sticky;top:92px;align-self:start}.side-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);font-weight:800;margin:0 0 12px}.nav{display:grid;gap:4px}.nav button{background:transparent;border:0;border-left:2px solid var(--line);padding:9px 14px;text-align:left;color:var(--muted);font-size:.86rem;font-weight:700}.nav button.active,.nav button:hover{color:var(--green);border-color:var(--green);background:linear-gradient(90deg,var(--mint),transparent)}.progress-wrap{margin-top:28px}.progress-label{display:flex;justify-content:space-between;color:var(--muted);font-size:.72rem}.progress{height:5px;background:#dde5e0;border-radius:9px;margin-top:8px;overflow:hidden}.progress span{height:100%;width:0;display:block;background:var(--green);transition:.3s}
+    .content{min-width:0}.section{display:none;animation:rise .35s ease}.section.active{display:block}@keyframes rise{from{opacity:0;transform:translateY(8px)}}.section-number{font:500 .72rem DM Mono,monospace;color:var(--gold);letter-spacing:.1em}.section h2{font:600 clamp(2.2rem,4vw,3.5rem)/1 Newsreader,serif;letter-spacing:-.035em;margin:7px 0 16px}.intro{color:var(--muted);font-size:1.04rem;max-width:760px;margin-bottom:28px}.lesson-card{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:clamp(20px,3vw,32px);margin:18px 0}.lesson-card h3{font:600 1.55rem Newsreader,serif;margin:0 0 8px}.lesson-card p{color:var(--muted)}.code{position:relative;background:var(--code);color:#d9eee5;border-radius:11px;padding:22px;margin:16px 0;overflow:auto;font:400 .78rem/1.75 DM Mono,monospace;white-space:pre}.copy{position:absolute;right:10px;top:10px;border:1px solid #345448;background:#173a2e;color:#bfe1d3;border-radius:7px;padding:6px 10px;font:500 .67rem DM Mono,monospace}.copy:hover{background:#225541}.note{border-left:3px solid var(--gold);background:#fbf4e5;padding:14px 17px;border-radius:0 9px 9px 0;color:#725724;font-size:.88rem}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.mini{border:1px solid var(--line);border-radius:11px;padding:17px;background:#fff}.mini strong{display:block;color:var(--green);margin-bottom:5px}.mini code{font:500 .75rem DM Mono;background:var(--mint);padding:3px 6px;border-radius:4px}
+    .playground{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:20px}.play-head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}.play-head strong{font-size:.85rem}.live{font:.65rem DM Mono;color:var(--green);display:flex;align-items:center;gap:6px}.live:before{content:"";width:7px;height:7px;border-radius:50%;background:#39a97f;box-shadow:0 0 0 4px #dff1e9}.play-body{display:grid;grid-template-columns:1fr 1fr;min-height:250px}.play-body textarea{resize:vertical;min-height:250px;border:0;border-right:1px solid var(--line);outline:0;background:var(--code);color:#d9eee5;padding:22px;font:400 .82rem/1.7 DM Mono,monospace}.render{padding:30px;display:grid;place-items:center;text-align:center;overflow:auto}.error{color:#a64444;font-size:.8rem}
+    .commands{width:100%;border-collapse:collapse;margin-top:14px;font-size:.85rem}.commands th,.commands td{text-align:left;border-bottom:1px solid var(--line);padding:12px 9px}.commands th{color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}.commands code{font:500 .73rem DM Mono;color:var(--green)}.complete{margin-top:25px;width:100%;border:1px solid var(--green);background:transparent;color:var(--green);border-radius:10px;padding:12px;font-weight:800}.complete.done{background:var(--green);color:#fff}
+    footer{background:var(--ink);color:#dce9e3;padding:38px clamp(24px,7vw,100px);display:flex;justify-content:space-between;gap:20px;align-items:center}footer p{margin:0;color:#a8bdb4;font-size:.8rem}footer strong{color:#fff}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:55px}.paper-card{max-width:620px}.layout{grid-template-columns:1fr}.side{position:static}.nav{grid-template-columns:repeat(3,1fr)}.nav button{border-left:0;border-bottom:2px solid var(--line);padding:9px 5px;font-size:.75rem}.progress-wrap{display:none}}
+    @media(max-width:620px){.toplinks a:not(:last-child){display:none}.hero{padding:48px 20px}.hero h1{font-size:3.7rem}.grid2,.play-body{grid-template-columns:1fr}.play-body textarea{border-right:0;border-bottom:1px solid var(--line)}.nav{grid-template-columns:repeat(2,1fr)}footer{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#"><span class="mark">L</span><span>LaTeX Field Guide</span></a><nav class="toplinks"><a href="#guide">Guide</a><a href="#playground" onclick="showSection(5)">Playground</a><a href="https://nuhaaljuneidi.github.io/AI/">AI in Academia ↗</a></nav></header>
+  <section class="hero">
+    <div><span class="eyebrow">A practical academic companion</span><h1>Write with<br><em>precision.</em></h1><p class="lead">A clear, interactive introduction to LaTeX for technical reports, equations, figures, tables, and research papers—built for students and engineers.</p><div class="hero-actions"><a class="btn btn-primary" href="#guide" onclick="showSection(0)">Start the guide →</a><a class="btn btn-ghost" href="#playground" onclick="showSection(5)">Try an equation</a></div></div>
+    <div class="paper-card"><div class="paper-head"><div class="dots"><i></i><i></i><i></i></div><small>heat_transfer.tex</small></div><pre><span class="syntax">\begin</span>{equation}
+  \dot{Q} = -kA \frac{dT}{dx}
+<span class="syntax">\end</span>{equation}
+
+The thermal resistance is
+
+<span class="syntax">\begin</span>{equation}
+  R_{cond} = \frac{L}{kA}
+<span class="syntax">\end</span>{equation}</pre><div class="math-preview" id="heroMath"></div></div>
+  </section>
+  <main class="layout" id="guide">
+    <aside class="side"><p class="side-label">Learning path</p><nav class="nav" id="nav"></nav><div class="progress-wrap"><div class="progress-label"><span>Your progress</span><span id="progressText">0 / 6</span></div><div class="progress"><span id="progressBar"></span></div></div></aside>
+    <article class="content">
+      <section class="section active" data-title="Getting started"><span class="section-number">01 — FOUNDATIONS</span><h2>Your first document</h2><p class="intro">Every LaTeX document has a preamble for settings and a document environment for content. Start with this minimal, dependable structure.</p>
+        <div class="lesson-card"><h3>The essential skeleton</h3><p>Choose a document class, load packages, then place visible content between <code>\begin{document}</code> and <code>\end{document}</code>.</p><div class="code"><button class="copy">Copy</button>\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+
+\title{My Technical Report}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+This is my first LaTeX document.
+
+\end{document}</div><div class="note">Use Overleaf for a zero-install start, or TeX Live/MiKTeX with an editor for local work.</div></div>
+        <div class="grid2"><div class="mini"><strong>Commands</strong>Begin with a backslash: <code>\section{...}</code></div><div class="mini"><strong>Comments</strong>Anything after <code>%</code> is ignored.</div><div class="mini"><strong>Groups</strong>Curly braces contain command arguments.</div><div class="mini"><strong>Compile</strong>Your <code>.tex</code> source becomes a PDF.</div></div><button class="complete">Mark section complete</button>
+      </section>
+      <section class="section" data-title="Text & structure"><span class="section-number">02 — ORGANIZATION</span><h2>Structure the story</h2><p class="intro">Good technical writing uses hierarchy consistently. Let LaTeX number and format the document for you.</p>
+        <div class="lesson-card"><h3>Sections, emphasis, and lists</h3><div class="code"><button class="copy">Copy</button>\section{Methods}
+\subsection{Experimental Setup}
+
+The \textbf{primary objective} is to evaluate
+\emph{thermal performance}.
+
+\begin{enumerate}
+  \item Define the boundary conditions.
+  \item Run the simulation.
+  \item Validate the results.
+\end{enumerate}</div></div>
+        <table class="commands"><thead><tr><th>Purpose</th><th>Command</th></tr></thead><tbody><tr><td>New paragraph</td><td><code>blank source line</code></td></tr><tr><td>Bold text</td><td><code>\textbf{...}</code></td></tr><tr><td>Emphasis</td><td><code>\emph{...}</code></td></tr><tr><td>Bullet list</td><td><code>itemize</code></td></tr><tr><td>Numbered list</td><td><code>enumerate</code></td></tr></tbody></table><button class="complete">Mark section complete</button>
+      </section>
+      <section class="section" data-title="Equations"><span class="section-number">03 — MATHEMATICS</span><h2>Typeset equations</h2><p class="intro">Mathematics is LaTeX’s natural habitat. Use inline math for short expressions and displayed environments for important equations.</p>
+        <div class="lesson-card"><h3>Inline and displayed math</h3><div class="code"><button class="copy">Copy</button>The Reynolds number is $Re = \rho V D / \mu$.
+
+\begin{equation}
+  \eta = \frac{Q_{delivered}}{Q_{demand}}
+  \label{eq:efficiency}
+\end{equation}
+
+As shown in Equation~\ref{eq:efficiency}, ...</div><div class="note">Label equations, figures, tables, and sections. Refer to the label—not a number typed by hand.</div></div>
+        <div class="grid2"><div class="mini"><strong>Fraction</strong><code>\frac{a}{b}</code></div><div class="mini"><strong>Subscript</strong><code>T_{in}</code></div><div class="mini"><strong>Superscript</strong><code>x^2</code></div><div class="mini"><strong>Greek</strong><code>\alpha, \Delta, \rho</code></div><div class="mini"><strong>Integral</strong><code>\int_a^b f(x)\,dx</code></div><div class="mini"><strong>Matrix</strong><code>\begin{bmatrix}</code></div></div><button class="complete">Mark section complete</button>
+      </section>
+      <section class="section" data-title="Figures & tables"><span class="section-number">04 — EVIDENCE</span><h2>Present results clearly</h2><p class="intro">Treat every visual as part of your argument: place it, caption it, label it, and discuss it in the text.</p>
+        <div class="lesson-card"><h3>A publication-ready figure</h3><div class="code"><button class="copy">Copy</button>\usepackage{graphicx}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.78\textwidth]{results.png}
+  \caption{Temperature evolution during solidification.}
+  \label{fig:temperature}
+\end{figure}</div></div>
+        <div class="lesson-card"><h3>A clean table</h3><div class="code"><button class="copy">Copy</button>\usepackage{booktabs}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Model performance metrics.}
+  \label{tab:metrics}
+  \begin{tabular}{lcc}
+    \toprule
+    Model &amp; RMSE &amp; $R^2$ \\
+    \midrule
+    Random Forest &amp; 0.041 &amp; 0.96 \\
+    Gaussian Process &amp; 0.035 &amp; 0.97 \\
+    \bottomrule
+  \end{tabular}
+\end{table}</div></div><button class="complete">Mark section complete</button>
+      </section>
+      <section class="section" data-title="Citations"><span class="section-number">05 — SOURCES</span><h2>Manage citations</h2><p class="intro">Keep references in a separate BibTeX file. One source record can then be cited, reordered, and restyled automatically.</p>
+        <div class="lesson-card"><h3>Bibliography workflow</h3><div class="code"><button class="copy">Copy</button>% references.bib
+@article{aljuneidi2024thermal,
+  author  = {Aljuneidi, Nuha and Others},
+  title   = {Thermal Energy Storage Review},
+  journal = {Advances in Heat Transfer},
+  year    = {2024}
+}
+
+% main.tex
+Thermal storage has been widely studied
+\cite{aljuneidi2024thermal}.
+
+\bibliographystyle{plain}
+\bibliography{references}</div><div class="note">For modern projects, consider <strong>biblatex</strong> with <strong>biber</strong>; follow the template required by your journal or conference.</div></div><button class="complete">Mark section complete</button>
+      </section>
+      <section class="section" id="playground" data-title="Playground"><span class="section-number">06 — PRACTICE</span><h2>Equation playground</h2><p class="intro">Edit the LaTeX below. The expression renders instantly, making this a quick place to test notation before using it in a document.</p>
+        <div class="playground"><div class="play-head"><strong>Live equation preview</strong><span class="live">RENDERING</span></div><div class="play-body"><textarea id="latexInput" spellcheck="false">\dot{Q} = UA\Delta T_{lm}
+
+\Delta T_{lm} = \frac{\Delta T_1 - \Delta T_2}{\ln(\Delta T_1 / \Delta T_2)}</textarea><div class="render" id="render"></div></div></div>
+        <div class="lesson-card"><h3>Before you submit</h3><div class="grid2"><div class="mini"><strong>Compile cleanly</strong>Resolve errors and meaningful warnings.</div><div class="mini"><strong>Cross-reference</strong>Check every figure, table, and equation callout.</div><div class="mini"><strong>Inspect the PDF</strong>Look for overflow, lonely headings, and poor breaks.</div><div class="mini"><strong>Follow the template</strong>Use the publisher’s class and bibliography style.</div></div></div><button class="complete">Mark section complete</button>
+      </section>
+    </article>
+  </main>
+  <footer><div><strong>LaTeX Field Guide</strong><p>Designed and developed by Dr. Nuha Aljuneidi.</p></div><p>For teaching, research, and better technical communication.</p></footer>
+  <script>
+    const sections=[...document.querySelectorAll('.section')],nav=document.getElementById('nav');
+    const completed=new Set(JSON.parse(localStorage.getItem('latex-progress')||'[]'));
+    sections.forEach((s,i)=>{const b=document.createElement('button');b.textContent=`${String(i+1).padStart(2,'0')}  ${s.dataset.title}`;b.onclick=()=>showSection(i);nav.appendChild(b);s.querySelector('.complete').onclick=e=>{completed.has(i)?completed.delete(i):completed.add(i);localStorage.setItem('latex-progress',JSON.stringify([...completed]));updateProgress();e.currentTarget.classList.toggle('done',completed.has(i));e.currentTarget.textContent=completed.has(i)?'✓ Section complete':'Mark section complete'}});
+    function showSection(i){sections.forEach((s,n)=>s.classList.toggle('active',n===i));[...nav.children].forEach((b,n)=>b.classList.toggle('active',n===i));setTimeout(()=>document.getElementById('guide').scrollIntoView({behavior:'smooth'}),20)}
+    function updateProgress(){document.getElementById('progressText').textContent=`${completed.size} / ${sections.length}`;document.getElementById('progressBar').style.width=`${completed.size/sections.length*100}%`;sections.forEach((s,i)=>{const b=s.querySelector('.complete'),done=completed.has(i);b.classList.toggle('done',done);b.textContent=done?'✓ Section complete':'Mark section complete'})}
+    document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{const text=b.parentElement.textContent.replace(/^Copy/,'').trim();await navigator.clipboard.writeText(text);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)});
+    function renderMath(){const out=document.getElementById('render'),input=document.getElementById('latexInput').value;try{katex.render(input,out,{displayMode:true,throwOnError:true});}catch(e){out.innerHTML=`<span class="error">${e.message}</span>`}}
+    window.addEventListener('load',()=>{katex.render(String.raw`\dot{Q}=-kA\frac{dT}{dx}`,document.getElementById('heroMath'),{displayMode:true});renderMath()});
+    document.getElementById('latexInput').addEventListener('input',renderMath);showSection(0);updateProgress();
+  </script>
+</body>
+</html>

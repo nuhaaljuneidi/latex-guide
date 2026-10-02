@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="An interactive LaTeX guide for students, researchers, and engineers by Dr. Nuha AlJuneidi.">
+  <meta name="description" content="An interactive LaTeX guide for students, researchers, and engineers by Dr. Nuha Aljuneidi.">
   <title>LaTeX Field Guide | Dr. Nuha Aljuneidi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,11 +80,11 @@ The \textbf{primary objective} is to evaluate
         <div class="lesson-card"><h3>Inline and displayed math</h3><div class="code"><button class="copy">Copy</button>The Reynolds number is $Re = \rho V D / \mu$.
 
 \begin{equation}
-  \eta = \frac{Q_{delivered}}{Q_{demand}}
+  \eta = \frac{Q_{\text{delivered}}}{Q_{\text{demand}}}
   \label{eq:efficiency}
 \end{equation}
 
-As shown in Equation~\ref{eq:efficiency}, ...</div><div class="note">Label equations, figures, tables, and sections. Refer to the label—not a number typed by hand.</div></div>
+As shown in Equation~\ref{eq:efficiency}, ...</div><div class="note">Label equations, figures, tables, and sections. Refer to the label—not a number typed by hand. Wrap word-like subscripts such as <code>delivered</code> in <code>\text{...}</code>—without it, LaTeX typesets each letter as a separate italic variable instead of a readable word.</div></div>
         <div class="grid2"><div class="mini"><strong>Fraction</strong><code>\frac{a}{b}</code></div><div class="mini"><strong>Subscript</strong><code>T_{in}</code></div><div class="mini"><strong>Superscript</strong><code>x^2</code></div><div class="mini"><strong>Greek</strong><code>\alpha, \Delta, \rho</code></div><div class="mini"><strong>Integral</strong><code>\int_a^b f(x)\,dx</code></div><div class="mini"><strong>Matrix</strong><code>\begin{bmatrix}</code></div></div><button class="complete">Mark section complete</button>
       </section>
       <section class="section" data-title="Figures & tables"><span class="section-number">04 — EVIDENCE</span><h2>Present results clearly</h2><p class="intro">Treat every visual as part of your argument: place it, caption it, label it, and discuss it in the text.</p>
@@ -149,7 +149,7 @@ Thermal storage has been widely studied
       </section>
     </article>
   </main>
-  <footer><div><strong>LaTeX Field Guide</strong><p style="font-weight:700;font-size:.95rem;color:#fff;margin-top:4px">Designed and developed by Dr. Nuha AlJuneidi.</p></div><p>For teaching, research, and better technical communication.</p></footer>
+  <footer><div><strong>LaTeX Field Guide</strong><p style="font-weight:700;font-size:.95rem;color:#fff;margin-top:4px">Designed and developed by Dr. Nuha Aljuneidi.</p></div><p>For teaching, research, and better technical communication.</p></footer>
   <script>
     const sections=[...document.querySelectorAll('.section')],nav=document.getElementById('nav');
     const completed=new Set(JSON.parse(localStorage.getItem('latex-progress')||'[]'));

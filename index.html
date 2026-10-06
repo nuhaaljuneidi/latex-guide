@@ -28,9 +28,9 @@
   </style>
 </head>
 <body>
-  <header class="topbar"><a class="brand" href="#"><span class="mark">L</span><span>LaTeX Field Guide</span></a><nav class="toplinks"><a href="#guide">Guide</a><a href="#playground" onclick="showSection(6)">Playground</a><a href="https://nuhaaljuneidi.github.io/AI/">AI in Academia ↗</a></nav></header>
+  <header class="topbar"><a class="brand" href="#"><span class="mark">L</span><span>LaTeX Field Guide</span></a><nav class="toplinks"><a href="#guide">Guide</a><a href="#playground" onclick="showSection(7)">Playground</a><a href="https://nuhaaljuneidi.github.io/AI/">AI in Academia ↗</a></nav></header>
   <section class="hero">
-    <div><span class="eyebrow">A practical academic companion</span><h1>Write with<br><em>precision.</em></h1><p class="lead">A clear, interactive introduction to LaTeX for technical reports, equations, figures, tables, and research papers—built for students and engineers.</p><p class="byline">Created by Dr. Nuha Aljuneidi<br><span>Assistant Professor of Mechanical Engineering</span></p><div class="hero-actions"><a class="btn btn-primary" href="#guide" onclick="showSection(0)">Start the guide →</a><a class="btn btn-ghost" href="#playground" onclick="showSection(6)">Try an equation</a></div></div>
+    <div><span class="eyebrow">A practical academic companion</span><h1>Write with<br><em>precision.</em></h1><p class="lead">A clear, interactive introduction to LaTeX for technical reports, equations, figures, tables, and research papers—built for students and engineers.</p><p class="byline">Created by Dr. Nuha Aljuneidi<br><span>Assistant Professor of Mechanical Engineering</span></p><div class="hero-actions"><a class="btn btn-primary" href="#guide" onclick="showSection(0)">Start the guide →</a><a class="btn btn-ghost" href="#playground" onclick="showSection(7)">Try an equation</a></div></div>
     <div class="paper-card"><div class="paper-head"><div class="dots"><i></i><i></i><i></i></div><small>heat_transfer.tex</small></div><pre><span class="syntax">\begin</span>{equation}
   \dot{Q} = -kA \frac{dT}{dx}
 <span class="syntax">\end</span>{equation}
@@ -141,7 +141,26 @@ Thermal storage has been widely studied
 \]
 \end{document}</div><div class="note">Do not delete the original project. Make a copy before reducing it to a minimal example.</div></div><button class="complete">Mark section complete</button>
       </section>
-      <section class="section" id="playground" data-title="Playground"><span class="section-number">07 — PRACTICE</span><h2>Equation playground</h2><p class="intro">Edit the LaTeX below. The expression renders instantly, making this a quick place to test notation before using it in a document.</p>
+            <section class="section" data-title="Final checklist">
+        <span class="section-number">07 — DELIVERY</span><h2>Before you submit</h2>
+        <p class="intro">A final technical check catches the small problems that distract readers from otherwise strong work. Use this list before exporting or sharing your PDF.</p>
+        <div class="lesson-card"><h3>Content and structure</h3><div class="grid2">
+          <div class="mini"><strong>Title page</strong>Verify the title, author, affiliation, course or project, and date.</div>
+          <div class="mini"><strong>Section flow</strong>Confirm headings are descriptive, ordered, and reflected correctly in the table of contents.</div>
+          <div class="mini"><strong>Figures and tables</strong>Every item is numbered, cited in the text, readable, and supplied with an informative caption.</div>
+          <div class="mini"><strong>Equations</strong>Define symbols, include units where appropriate, and reference important equations by number.</div>
+        </div></div>
+        <div class="lesson-card"><h3>Compilation and references</h3><table class="commands"><tr><th>Check</th><th>What good looks like</th></tr>
+          <tr><td>Compilation</td><td>The document builds without errors and without unresolved warnings.</td></tr>
+          <tr><td>Citations</td><td>No question marks appear; every cited source is present in the bibliography.</td></tr>
+          <tr><td>Cross-references</td><td>Figure, table, section, and equation references point to the correct items.</td></tr>
+          <tr><td>PDF review</td><td>Fonts, margins, page breaks, hyperlinks, and image quality are checked in the final PDF.</td></tr>
+          <tr><td>File package</td><td>The source, bibliography, figures, and required class or style files are included.</td></tr>
+        </table></div>
+        <div class="note">Review the exported PDF—not only the source. Several layout problems become obvious only after compilation.</div>
+        <button class="complete">Mark section complete</button>
+      </section>
+      <section class="section" id="playground" data-title="Playground"><span class="section-number">08 — PRACTICE</span><h2>Equation playground</h2><p class="intro">Edit the LaTeX below. The expression renders instantly, making this a quick place to test notation before using it in a document.</p>
         <div class="playground"><div class="play-head"><strong>Live equation preview</strong><span class="live">RENDERING</span></div><div class="play-body"><textarea id="latexInput" spellcheck="false">\dot{Q} = UA\Delta T_{lm}
 
 \Delta T_{lm} = \frac{\Delta T_1 - \Delta T_2}{\ln(\Delta T_1 / \Delta T_2)}</textarea><div class="render" id="render"></div></div></div>
